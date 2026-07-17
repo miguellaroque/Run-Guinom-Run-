@@ -4,9 +4,17 @@ extends Control
 @onready var recorde = $LabelPontos
 
 func _ready() -> void:
-	recorde.text = "SEU RECORDE: " + str(GlobalVar.recorde)
+	recorde.text = "SEU RECORDE: " + str(int(GlobalVar.recorde))
 
 func _on_reiniciar_pressed():
+	GlobalVar.morto = false
 	fade.transicao = true
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.2).timeout
 	get_tree().change_scene_to_file("res://scenes/main_game.tscn")
+
+
+func _on_voltar_menu_pressed() -> void:
+	GlobalVar.morto = false
+	fade.transicao = true
+	await get_tree().create_timer(0.2).timeout
+	get_tree().change_scene_to_file("res://scenes/")

@@ -61,6 +61,13 @@ theme_override_font_sizes/font_size = 24
 text = "SEU RECORDE:"
 horizontal_alignment = 1
 
+[node name="Fade" type="TextureRect" parent="." unique_id=1733132051]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_wqhvx")
+script = ExtResource("6_irg28")
+
 [node name="Reiniciar" type="Button" parent="." unique_id=1741249711]
 layout_mode = 1
 anchors_preset = 8
@@ -93,11 +100,5 @@ grow_vertical = 2
 icon = ExtResource("4_7m3ot")
 flat = true
 
-[node name="Fade" type="TextureRect" parent="." unique_id=1733132051]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_wqhvx")
-script = ExtResource("6_irg28")
-
 [connection signal="pressed" from="Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="VoltarMenu" to="." method="_on_voltar_menu_pressed"]
