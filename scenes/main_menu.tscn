@@ -1,28 +1,28 @@
-[gd_scene format=3 uid="uid://ducbg7hbpdsad"]
+[gd_scene format=3 uid="uid://dbuef4wmv40a0"]
 
-[ext_resource type="Script" uid="uid://cqx80h6gh5h28" path="res://scenes/game_over.gd" id="1_v3hpu"]
-[ext_resource type="Texture2D" uid="uid://bfl3p2chwkvpo" path="res://sprites/fundo_game_over.png" id="1_wqhvx"]
-[ext_resource type="FontFile" uid="uid://ckcnxfhwmwhse" path="res://fonts/Chaos Aura.otf" id="2_tbwuq"]
-[ext_resource type="Texture2D" uid="uid://wlr7x08n4icb" path="res://sprites/botão_reiniciar.png" id="3_racf3"]
-[ext_resource type="Texture2D" uid="uid://bi0wt4vassw6t" path="res://sprites/botão_voltar_menu.png" id="4_7m3ot"]
-[ext_resource type="Script" uid="uid://8b7rj0pl7fm0" path="res://scripts/fade_in_go.gd" id="6_irg28"]
+[ext_resource type="Script" uid="uid://dmbj33ghpcdw7" path="res://scenes/main_menu.gd" id="1_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://bfl3p2chwkvpo" path="res://sprites/fundo_game_over.png" id="2_oa1go"]
+[ext_resource type="FontFile" uid="uid://ckcnxfhwmwhse" path="res://fonts/Chaos Aura.otf" id="3_tbmy8"]
+[ext_resource type="Script" uid="uid://8b7rj0pl7fm0" path="res://scripts/fade_in_go.gd" id="4_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://wlr7x08n4icb" path="res://sprites/botão_reiniciar.png" id="5_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://bi0wt4vassw6t" path="res://sprites/botão_voltar_menu.png" id="6_lgwnu"]
 
-[node name="Game Over" type="Control" unique_id=1124852981]
+[node name="Main Menu" type="Control" unique_id=1124852981]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_v3hpu")
+script = ExtResource("1_rtw2f")
 
 [node name="Fundo" type="TextureRect" parent="." unique_id=215551590]
 layout_mode = 0
 offset_right = 800.0
 offset_bottom = 600.0
-texture = ExtResource("1_wqhvx")
+texture = ExtResource("2_oa1go")
 
-[node name="Nome Jogo" type="Label" parent="." unique_id=546514595]
+[node name="GameOver" type="Label" parent="." unique_id=546514595]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,9 +38,9 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.078431375)
-theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_fonts/font = ExtResource("3_tbmy8")
 theme_override_font_sizes/font_size = 64
-text = "APAGADO!"
+text = "RUN, GUINOM, RUN!"
 
 [node name="LabelPontos" type="Label" parent="." unique_id=463851214]
 layout_mode = 1
@@ -56,7 +56,7 @@ offset_bottom = -126.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_fonts/font = ExtResource("3_tbmy8")
 theme_override_font_sizes/font_size = 24
 text = "SEU RECORDE:"
 horizontal_alignment = 1
@@ -65,10 +65,10 @@ horizontal_alignment = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_wqhvx")
-script = ExtResource("6_irg28")
+texture = ExtResource("2_oa1go")
+script = ExtResource("4_jk1qb")
 
-[node name="Reiniciar" type="Button" parent="." unique_id=1741249711]
+[node name="Iniciar" type="Button" parent="." unique_id=1741249711]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,10 +81,10 @@ offset_right = 153.5
 offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("3_racf3")
+icon = ExtResource("5_5dd4i")
 flat = true
 
-[node name="VoltarMenu" type="Button" parent="." unique_id=1805743938]
+[node name="Sair" type="Button" parent="." unique_id=1805743938]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -97,8 +97,9 @@ offset_right = 153.5
 offset_bottom = 98.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("4_7m3ot")
+icon = ExtResource("6_lgwnu")
 flat = true
 
-[connection signal="pressed" from="Reiniciar" to="." method="_on_reiniciar_pressed"]
-[connection signal="pressed" from="VoltarMenu" to="." method="_on_voltar_menu_pressed"]
+[connection signal="pressed" from="Iniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]

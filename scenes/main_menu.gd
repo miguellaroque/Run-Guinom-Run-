@@ -1,0 +1,16 @@
+extends Control
+
+@onready var fade = $Fade
+@onready var recorde = $LabelPontos
+
+func _ready() -> void:
+	recorde.text = "SEU RECORDE: " + str(int(GlobalVar.recorde))
+
+func _on_sair_pressed() -> void:
+	get_tree().quit()
+
+func _on_iniciar_pressed() -> void:
+	GlobalVar.morto = false
+	fade.transicao = true
+	await get_tree().create_timer(0.1).timeout
+	get_tree().change_scene_to_file("res://scenes/main_game.tscn")
