@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://1rpswkw5q8sa"]
+
+[ext_resource type="PackedScene" uid="uid://cs2iyqspv8kuq" path="res://props/plataformas.tscn" id="1_72e8q"]
+[ext_resource type="Script" uid="uid://dwptk0lwlcdoy" path="res://scripts/game.gd" id="1_d2op2"]
+[ext_resource type="PackedScene" uid="uid://c4g1kpe0bgs8o" path="res://actors/guinom_player.tscn" id="2_d2op2"]
+[ext_resource type="Script" uid="uid://ddg4extu6iyj3" path="res://scripts/plataformas.gd" id="3_d2op2"]
+
+[node name="MainGame" type="Node2D" unique_id=179349654]
+script = ExtResource("1_d2op2")
+
+[node name="Guinom" parent="." unique_id=1965823733 instance=ExtResource("2_d2op2")]
+position = Vector2(56, 432)
+
+[node name="Plataforma" parent="." unique_id=1084980099 instance=ExtResource("1_72e8q")]
+position = Vector2(400, 640)
+script = ExtResource("3_d2op2")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2145269606]
+position = Vector2(1200, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1242390747]
+position = Vector2(400, 300)

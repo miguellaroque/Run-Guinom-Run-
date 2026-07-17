@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dc8ptc1h3wrki"]
+
+[ext_resource type="Script" uid="uid://bvlm065ux45f5" path="res://scripts/inimigos/ballofo.gd" id="1_quv6m"]
+[ext_resource type="Texture2D" uid="uid://fpex0nskpoib" path="res://icon.svg" id="1_wcy6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv6tx"]
+size = Vector2(84, 84)
+
+[node name="Ballofo" type="Area2D" unique_id=1978501029]
+script = ExtResource("1_quv6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137139535]
+shape = SubResource("RectangleShape2D_wv6tx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1832474312]
+position = Vector2(9.536743e-07, -9.536743e-07)
+scale = Vector2(0.65625, 0.65625)
+texture = ExtResource("1_wcy6g")

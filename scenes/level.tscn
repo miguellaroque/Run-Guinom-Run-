@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://06tctn5xdqq4"]
+
+[ext_resource type="Script" uid="uid://c2q4f8ii4nui5" path="res://scripts/anim_level.gd" id="1_w8frs"]
+[ext_resource type="Texture2D" uid="uid://b43xhg2a7bxmi" path="res://sprites/FundoPapel.png" id="2_mx8sn"]
+[ext_resource type="Texture2D" uid="uid://cjb3o0ed4ysmv" path="res://sprites/Chão/GuinomChãoNormal1.png" id="3_8iemx"]
+[ext_resource type="Texture2D" uid="uid://csx76ddimkcho" path="res://sprites/Chão/GuinomChãoNormal2.png" id="4_64w2a"]
+[ext_resource type="Texture2D" uid="uid://c8f0e8g7chojb" path="res://sprites/Chão/GuinomChãoNormal3.png" id="5_fpun6"]
+[ext_resource type="Texture2D" uid="uid://wsvv4gyx03i" path="res://sprites/Chão/GuinomChãoNormal4.png" id="6_wc255"]
+[ext_resource type="Texture2D" uid="uid://swigvakt662i" path="res://sprites/Chão/GuinomChãoNormal5.png" id="7_arp2o"]
+[ext_resource type="PackedScene" uid="uid://c4g1kpe0bgs8o" path="res://actors/guinom_player.tscn" id="8_64w2a"]
+[ext_resource type="Texture2D" uid="uid://cpt61ap5j1xvw" path="res://sprites/Chão/GuinomChãoFlores1.png" id="8_ux5qa"]
+[ext_resource type="Texture2D" uid="uid://bk03ouq23nvhu" path="res://sprites/Chão/GuinomChãoFlores2.png" id="9_82cfe"]
+[ext_resource type="Script" uid="uid://dk6v6m2mc523o" path="res://scripts/spawner.gd" id="9_fpun6"]
+[ext_resource type="Texture2D" uid="uid://441yg5hmpps1" path="res://sprites/Chão/GuinomChãoFlores3.png" id="10_gunhw"]
+[ext_resource type="Texture2D" uid="uid://cqix4052welpr" path="res://sprites/Chão/GuinomChãoFlores4.png" id="11_8gofh"]
+[ext_resource type="Texture2D" uid="uid://wmdmsnu3tmu8" path="res://sprites/Chão/GuinomChãoFlores5.png" id="12_h6wmr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqd0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8iemx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_64w2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fpun6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wc255")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_arp2o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc255"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ux5qa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_82cfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gunhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8gofh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_h6wmr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Level" type="ParallaxBackground" unique_id=689902780]
+script = ExtResource("1_w8frs")
+
+[node name="ParallaxFundo" type="ParallaxLayer" parent="." unique_id=2058470617]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(900, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxFundo" unique_id=2118748200]
+position = Vector2(450, 300)
+texture = ExtResource("2_mx8sn")
+
+[node name="ParallaxChão1" type="ParallaxLayer" parent="." unique_id=2058300236]
+motion_mirroring = Vector2(2400, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxChão1" unique_id=1241614158]
+position = Vector2(1200, 300)
+sprite_frames = SubResource("SpriteFrames_pqd0y")
+autoplay = "default"
+
+[node name="Guinom" parent="." unique_id=1965823733 instance=ExtResource("8_64w2a")]
+position = Vector2(-20, 456)
+
+[node name="SpawnerInimigos" type="Node2D" parent="." unique_id=1175024614]
+script = ExtResource("9_fpun6")
+
+[node name="ParallaxChão2" type="ParallaxLayer" parent="." unique_id=2124851977]
+top_level = true
+motion_mirroring = Vector2(2400, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxChão2" unique_id=323475948]
+position = Vector2(1200, 300)
+sprite_frames = SubResource("SpriteFrames_wc255")
+autoplay = "default"
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=788006102]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="SpawnerInimigos" method="_on_spawn_timer_timeout"]

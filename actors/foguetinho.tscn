@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c00cqj3i0gyhe"]
+
+[ext_resource type="Script" uid="uid://l0pjuj31gyn8" path="res://scripts/inimigos/foguetinho.gd" id="1_xpmg6"]
+[ext_resource type="Texture2D" uid="uid://dgvfhjons4wcl" path="res://sprites/SpritesheetFoguetin.png" id="2_tolsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tolsy"]
+size = Vector2(196, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiici"]
+atlas = ExtResource("2_tolsy")
+region = Rect2(0, 0, 488, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43sy4"]
+atlas = ExtResource("2_tolsy")
+region = Rect2(488, 0, 488, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw16p"]
+atlas = ExtResource("2_tolsy")
+region = Rect2(976, 0, 488, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g63n0"]
+atlas = ExtResource("2_tolsy")
+region = Rect2(0, 272, 488, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dvcq"]
+atlas = ExtResource("2_tolsy")
+region = Rect2(488, 272, 488, 272)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00ybc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiici")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43sy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw16p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g63n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dvcq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Foguetinho" type="Area2D" unique_id=1856719170 groups=["inimigos"]]
+script = ExtResource("1_xpmg6")
+
+[node name="ColisaoInimigo" type="CollisionShape2D" parent="." unique_id=29268031]
+shape = SubResource("RectangleShape2D_tolsy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1067728815]
+position = Vector2(6, -12)
+scale = Vector2(0.4820019, 0.48200187)
+sprite_frames = SubResource("SpriteFrames_00ybc")
+autoplay = "default"
+frame_progress = 0.33100146

@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://1rpswkw5q8sa"]
+
+[ext_resource type="Script" uid="uid://byllbkj75u1r" path="res://scripts/level.gd" id="1_d2op2"]
+[ext_resource type="PackedScene" uid="uid://06tctn5xdqq4" path="res://scenes/level.tscn" id="2_72e8q"]
+[ext_resource type="Texture2D" uid="uid://dj0ccvds8q484" path="res://sprites/hud_pontuacao.png" id="3_d2op2"]
+[ext_resource type="Texture2D" uid="uid://y74l7cokhn04" path="res://sprites/vinheta.png" id="3_ipu61"]
+[ext_resource type="Texture2D" uid="uid://cp4fk0bwdih4c" path="res://sprites/hud_apagando.png" id="3_ygxny"]
+[ext_resource type="FontFile" uid="uid://ckcnxfhwmwhse" path="res://fonts/Chaos Aura.otf" id="4_0rdsr"]
+[ext_resource type="Texture2D" uid="uid://cco55ftqd5ufg" path="res://sprites/Borracha/borracha1.png" id="7_70vka"]
+[ext_resource type="Texture2D" uid="uid://b0buhpocxp7pj" path="res://sprites/Borracha/borracha2.png" id="8_2l77h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipu61"]
+size = Vector2(1056, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi4c7"]
+atlas = ExtResource("3_ygxny")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70vka"]
+atlas = ExtResource("3_ygxny")
+region = Rect2(800, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l77h"]
+atlas = ExtResource("3_ygxny")
+region = Rect2(1600, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqdth"]
+atlas = ExtResource("3_ygxny")
+region = Rect2(0, 600, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cypo"]
+atlas = ExtResource("3_ygxny")
+region = Rect2(800, 600, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6v7o"]
+atlas = ExtResource("3_ygxny")
+region = Rect2(1600, 600, 800, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wjob3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi4c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70vka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l77h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqdth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cypo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6v7o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nqdth"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_70vka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2l77h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MainGame" type="Node2D" unique_id=179349654]
+script = ExtResource("1_d2op2")
+
+[node name="Chão" type="StaticBody2D" parent="." unique_id=348682498]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão" unique_id=1557408822]
+position = Vector2(528, 548)
+shape = SubResource("RectangleShape2D_ipu61")
+
+[node name="Level" parent="." unique_id=689902780 instance=ExtResource("2_72e8q")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=988313990]
+
+[node name="Vinheta" type="TextureRect" parent="HUD" unique_id=850745553]
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("3_ipu61")
+
+[node name="HudPontos" type="TextureRect" parent="HUD" unique_id=1130183159]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 215.0
+offset_bottom = 80.0
+texture = ExtResource("3_d2op2")
+
+[node name="Pontos" type="Label" parent="HUD" unique_id=63725742]
+offset_left = 39.0
+offset_top = 43.0
+offset_right = 300.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_0rdsr")
+theme_override_font_sizes/font_size = 32
+text = "PONTUAÇÃO"
+
+[node name="BorrachaApagando" type="Node2D" parent="." unique_id=1547311117]
+
+[node name="Apagando" type="AnimatedSprite2D" parent="BorrachaApagando" unique_id=1660130574]
+position = Vector2(384, 300)
+scale = Vector2(0.99500006, 0.99500006)
+sprite_frames = SubResource("SpriteFrames_wjob3")
+autoplay = "default"
+frame_progress = 0.9782276
+
+[node name="Borracha" type="AnimatedSprite2D" parent="BorrachaApagando" unique_id=593646414]
+position = Vector2(399.99997, 264)
+scale = Vector2(1.0183333, 1.0183333)
+sprite_frames = SubResource("SpriteFrames_nqdth")
+autoplay = "default"

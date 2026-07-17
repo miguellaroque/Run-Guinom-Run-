@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://baw2ba4exdol8"]
+
+[ext_resource type="Script" uid="uid://cukyjotif6q85" path="res://scripts/inimigos/bigodyn.gd" id="1_eqd83"]
+[ext_resource type="Texture2D" uid="uid://dixm4otkyggcm" path="res://sprites/SpritesheetSir.png" id="2_60qup"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_60qup"]
+radius = 45.65
+height = 110.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tasas"]
+atlas = ExtResource("2_60qup")
+region = Rect2(0, 0, 257, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pww7w"]
+atlas = ExtResource("2_60qup")
+region = Rect2(257, 0, 257, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xqyi"]
+atlas = ExtResource("2_60qup")
+region = Rect2(514, 0, 257, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te2fn"]
+atlas = ExtResource("2_60qup")
+region = Rect2(0, 227, 257, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diixo"]
+atlas = ExtResource("2_60qup")
+region = Rect2(257, 227, 257, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83tpc"]
+atlas = ExtResource("2_60qup")
+region = Rect2(514, 227, 257, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85qw5"]
+atlas = ExtResource("2_60qup")
+region = Rect2(0, 454, 257, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00xgf"]
+atlas = ExtResource("2_60qup")
+region = Rect2(257, 454, 257, 227)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60qup"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tasas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pww7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xqyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te2fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diixo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83tpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85qw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00xgf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="Bigodyn" type="Area2D" unique_id=1978501029 groups=["inimigos"]]
+script = ExtResource("1_eqd83")
+
+[node name="ColisaoInimigo" type="CollisionShape2D" parent="." unique_id=1137139535]
+position = Vector2(5.5, 0)
+shape = SubResource("CapsuleShape2D_60qup")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=558859066]
+position = Vector2(3.1321573, -7)
+scale = Vector2(0.5286345, 0.52863437)
+sprite_frames = SubResource("SpriteFrames_60qup")
+autoplay = "default"
+frame_progress = 0.9256312
