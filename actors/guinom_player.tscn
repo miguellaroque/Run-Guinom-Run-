@@ -73,7 +73,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vy6os")
 }],
-"loop": 1,
+"loop": true,
 "name": &"corrida",
 "speed": 14.0
 }, {
@@ -132,7 +132,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wg0vq")
 }],
-"loop": 0,
+"loop": false,
 "name": &"duplo_pulo",
 "speed": 10.0
 }, {
@@ -191,7 +191,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wg0vq")
 }],
-"loop": 0,
+"loop": false,
 "name": &"pulo",
 "speed": 10.0
 }]
@@ -241,7 +241,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ddems")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 12.0
 }, {
@@ -270,7 +270,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ddems")
 }],
-"loop": 0,
+"loop": false,
 "name": &"explosao",
 "speed": 12.0
 }]

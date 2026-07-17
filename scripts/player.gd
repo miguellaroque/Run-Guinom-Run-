@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 		if !is_on_floor():
 			pulo_duplo = true
 	
+	if Input.is_action_just_pressed("cair") and (!is_on_floor()):
+		velocity.y = forca_pulo
+	
 	# Mudar de posição
 	if Input.is_action_pressed("avancar"):
 		avanco_player = 420

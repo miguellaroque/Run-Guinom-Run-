@@ -22,6 +22,9 @@ func _physics_process(delta: float) -> void:
 		GlobalVar.vel_mundo += GlobalVar.accel_mundo * delta
 
 func morreu():
+	GlobalVar.vel_mundo = GlobalVar.default_vel_mundo
+	GlobalVar.vel_inimigo = GlobalVar.default_vel_inimigo
+	
 	if pontos > GlobalVar.recorde:
 		GlobalVar.recorde = pontos
 	
