@@ -4,6 +4,7 @@ extends Control
 @onready var recorde = $LabelPontos
 
 func _ready() -> void:
+	$Iniciar.grab_focus()
 	recorde.text = "SEU RECORDE: " + str(int(GlobalVar.recorde))
 
 func _on_iniciar_pressed() -> void:

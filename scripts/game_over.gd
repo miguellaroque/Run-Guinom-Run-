@@ -4,6 +4,7 @@ extends Control
 @onready var recorde = $LabelPontos
 
 func _ready() -> void:
+	$Reiniciar.grab_focus()
 	recorde.text = "SEU RECORDE: " + str(int(GlobalVar.recorde))
 	
 func trocar_cena(cena: String) -> void:
